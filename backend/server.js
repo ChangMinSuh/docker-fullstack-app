@@ -4,16 +4,16 @@ const db = require("./db");
 const app = express();
 
 app.use(express.json());
-// db.pool.query(
-//   `CREATE TABLE lists(
-//   id INTEGER AUTO_INCREMENT,
-//   value TEXT,
-//   PRIMARY KEY (id)
-// )`,
-//   (err, results, fileds) => {
-//     console.log("results:", results);
-//   }
-// );
+db.pool.query(
+  `CREATE TABLE lists(
+   id INTEGER AUTO_INCREMENT,
+   value TEXT,
+   PRIMARY KEY (id)
+ )`,
+  (err, results, fileds) => {
+    console.log("results:", results);
+  }
+);
 
 app.get("/api/values", (req, res) => {
   db.pool.getConnection((err, conn) => {
